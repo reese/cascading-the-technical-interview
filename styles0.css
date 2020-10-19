@@ -1,0 +1,141 @@
+/**
+ *
+ * There's that slight buzz in the air. More like a rumble,
+ * the air tingling against your tympanum.
+ * Some say it's the whisper of Scylla, but you know better.
+ *
+ * Charybdis being the more likely culprit.
+ *
+ * These were, of course, in the early days, when that
+ * gentle naiad's water was yet untouched by some wicked potion
+ * of this-or-that jealous goddess. That cunning Odysseus had not
+ * yet made his bargain, nor seen her fury. Not many got such a deal.
+ *
+ */
+
+/**
+ *
+ * You had always wished that Keats' had been right, that her
+ * beauty may have lived in a crystal enclave, with every
+ * unholy sailor or pirate whose lover remained ashore, fixed
+ * firmly to the land, dreaming of those endless seas to which their heart was lost.
+ *
+ */
+
+/**
+ *
+ * There's a pounding in the distance,
+ * deep booms as were common in those primordial days,
+ * and a creak like the groaning collapse of a topsail.
+ *
+ * You inhale sharply.
+ * The salt burns your chest as your lungs fill with water.
+ *
+ */
+
+/**
+  *
+  * "Steven, right?"
+  *
+  * The waves die down, and a bright light burns your eyes.
+  * Bright, but not warm.
+  *
+  */
+
+pre,
+a {
+  color: slategray;
+}
+
+html {
+  background: white;
+}
+
+/**
+  *
+  * Fluorescent.
+  *
+  */
+
+/**
+ *
+ * A hand reaches out, most definitely a human hand.
+ *
+ * "I'm Alexis, I'll be interviewing you today."
+ *
+ * You reach out as the waves subside around you.
+ * The smell of dry-erase markers and freshly cleaned office
+ * carpets bite your nose.
+ * The handshake is firm, but not warm.
+ *
+ */
+
+/**
+ *
+ * "Nice to meet you," you fumble out, your mind and body slowly
+ * coalescing into the same epoch.
+ *
+ */
+
+/**
+ *
+ * "Thank you so much for coming in today. We're very
+ * fortunate to have a candidate with your seniority
+ * express an interest in the team."
+ *
+ * Those ancient tides still pulse in your ears.
+ * Pulse through your fingertips.
+ *
+ */
+
+/**
+ *
+ * "Together we'll go through some standard technical questions", she continues,
+ * "although to be quite honest, from looking at your resume,
+ * I'm sure you'll breeze through them."
+ *
+ * The warmth began to return to your old bones. The mortals around
+ * you glowed, their veins throbbing with fresh blood for a pious altar.
+ * Memories of the mortal era returned to mind.
+ *
+ * "We have a Google Doc here that you can write your code in."
+ *
+ */
+
+pre:not(:empty) {
+  overflow: auto;
+  max-height: 45vh;
+  width: 48%;
+  font-size: 14px;
+  font-family: monospace;
+  padding: 1vh 0.5vw;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+  outline: 0;
+  margin: 1vh 0.5vw;
+}
+
+#style-text {
+  -webkit-transform: translateX(100%);
+  position: absolute;
+}
+
+/**
+  *
+  * "This is a bit embarrassing, but we do this with every candidate;
+  * to start off, I'd love for you to walk me through a simple FizzBuzz implementation.
+  * I'm assuming you've heard of FizzBuzz, right?"
+  *
+  * Now that brings the warmth back!
+  * An old god, pitted against a child's algorithm.
+  * Your laughter shakes the walls
+  * of the exposed-brick office halls.
+  *
+  */
+
+/**
+ *
+ * The mortals seem to praise you for finishing these sorts of things
+ * quickly. A peasant's task.
+ *
+ */

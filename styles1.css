@@ -1,0 +1,90 @@
+/**
+ *
+ * Your fingers fling themselves
+ * across the keyboard of their own accord.
+ * The blood of antiquity instills
+ * powers unknown to your judge.
+ *
+ * Your eyes sting, having not adjusted
+ * to the accursed lights above you.
+ *
+ */
+
+pre,
+a {
+  color: white;
+}
+
+body {
+  background-color: #484848;
+}
+
+/**
+ *
+ * "Did someone just dim the lights?"
+ * Alexis peeks her head into the hallway.
+ *
+ * The air around you cools, reminiscent of
+ * an ocean home.
+ *
+ */
+
+.comment {
+  color: #857f6b;
+  font-style: italic;
+}
+.selector {
+  color: #e69f0f;
+}
+.selector .key {
+  color: #64d5ea;
+}
+.key {
+  color: #64d5ea;
+}
+.value {
+  color: #be84f2;
+}
+.value.px {
+  color: #f92772;
+}
+
+/**
+ *
+ * "Well anyways, right, FizzBuzz."
+ * She hesitates, presumably because of
+ * your supernatural speed.
+ *
+ * "Um..."
+ *
+ */
+
+/**
+ *
+ * "Well normally we want you to
+ * actually implement this yourself.
+ * Adding dependencies _works_,
+ * I guess, but can you do this
+ * without pulling in an npm package?"
+ *
+ */
+
+body {
+  -webkit-perspective: 1000px;
+}
+
+#style-text {
+  -webkit-transform: rotateY(-10deg);
+  -webkit-transform-origin: right;
+  max-height: 93.1vh;
+}
+
+/**
+ * So, let's talk projects. That's why you're here, right?
+ * I can't imagine you'd come just to see the pretty colors.
+ */
+
+pre:not(#style-text) {
+  -webkit-transform: rotateY(10deg);
+  -webkit-transform-origin: left;
+}
