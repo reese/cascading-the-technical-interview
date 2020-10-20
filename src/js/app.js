@@ -1,9 +1,9 @@
 import Promise from 'bluebird';
 import 'classlist-polyfill';
-import headerHTML from 'raw-loader!./header.html';
-import getPrefix from './lib/getPrefix';
-import { handleChar, writeChar, writeJsChar, writeSimpleChar } from './lib/writeChar';
-let styleText = [0, 1, 2].map((i) => require('raw-loader!./styles' + i + '.css').default);
+import headerHTML from 'raw-loader!../../header.html';
+import getPrefix from '../../lib/getPrefix';
+import { handleChar, writeChar, writeJsChar, writeSimpleChar } from '../../lib/writeChar';
+let styleText = [0, 1, 2].map((i) => require('raw-loader!../css/styles' + i + '.css').default);
 let jsText = [0, 1].map((i) => require('raw-loader!./fizz' + i + '.js').default);
 
 // Vars that will help us get er done
@@ -25,8 +25,8 @@ async function startAnimation() {
   try {
     await writeTo(styleEl, styleText[0], 0, speed, true, 1);
     // Don't actually execute the first file
-    await writeTo(jsEl, jsText[0], 0, speed, false, 1, false);
-    await writeTo(jsEl, jsText[1], 0, speed, false, 1, true);
+    await writeTo(jsEl, jsText[0], 0, speed, true, 1, false);
+    await writeTo(jsEl, jsText[1], 0, speed, true, 1, true);
     await writeTo(styleEl, styleText[1], 0, speed, true, 1);
     await Promise.delay(1000);
     await writeTo(styleEl, styleText[2], 0, speed, true, 1);

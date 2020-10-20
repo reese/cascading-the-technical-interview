@@ -10,13 +10,13 @@
  *
  */
 
+body {
+  background-color: #484848;
+}
+
 pre,
 a {
   color: white;
-}
-
-body {
-  background-color: #484848;
 }
 
 /**

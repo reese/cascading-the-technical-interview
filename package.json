@@ -2,7 +2,7 @@
   "name": "cascading-the-technical-interview",
   "version": "0.0.1",
   "description": "",
-  "main": "app.js",
+  "main": "src/js/app.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --open --mode development",

@@ -15,7 +15,7 @@
 
 /**
  *
- * You had always wished that Keats' had been right, that her
+ * You had always wished that Keats had been right, that her
  * beauty may have lived in a crystal enclave, with every
  * unholy sailor or pirate whose lover remained ashore, fixed
  * firmly to the land, dreaming of those endless seas to which their heart was lost.
@@ -104,7 +104,7 @@ html {
 
 pre:not(:empty) {
   overflow: auto;
-  max-height: 45vh;
+  max-height: 80vh;
   width: 48%;
   font-size: 14px;
   font-family: monospace;
