@@ -1,50 +1,24 @@
-/**
- *
- * Your fingers fling themselves
- * across the keyboard of their own accord.
- * The blood of antiquity instills
- * powers unknown to your judge.
- *
- * Your eyes sting, having not adjusted
- * to the accursed lights above you.
- *
- */
-
-body {
-  background-color: #484848;
-}
-
-pre,
-a {
-  color: white;
-}
-
-/**
- *
- * "Did someone just dim the lights?"
- * Alexis peeks her head into the hallway.
- *
- * The air around you cools, reminiscent of
- * an ocean home.
- *
- */
-
 .comment {
   color: #857f6b;
   font-style: italic;
 }
+
 .selector {
   color: #e69f0f;
 }
+
 .selector .key {
   color: #64d5ea;
 }
+
 .key {
   color: #64d5ea;
 }
+
 .value {
   color: #be84f2;
 }
+
 .value.px {
   color: #f92772;
 }
@@ -61,11 +35,28 @@ a {
 
 /**
  *
- * "Well normally we want you to
- * actually implement this yourself.
- * Adding dependencies _works_,
- * I guess, but can you do this
- * without pulling in an npm package?"
+ * "Is this... Idris?"
+ *
+ */
+
+/**
+ *
+ * "Well you wanted the implementation
+ * to be _correct_, didn't you?"
+ *
+ * Humans can be so troublesome
+ * sometimes. Their language,
+ * so imprecise.
+ *
+ */
+
+/**
+ *
+ * "Well yes, but..."
+ *
+ * "It's just that this is
+ * a web dev shop. You know,
+ * HTML, CSS, JS, all that."
  *
  */
 
@@ -74,17 +65,26 @@ body {
 }
 
 #style-text {
-  -webkit-transform: rotateY(-10deg);
+  -webkit-transform: translateX(100%) rotateY(-10deg);
   -webkit-transform-origin: right;
-  max-height: 93.1vh;
+  max-height: 90vh;
 }
 
 /**
- * So, let's talk projects. That's why you're here, right?
- * I can't imagine you'd come just to see the pretty colors.
+ *
+ * "Of course, of course."
+ *
+ * "How foolish of me."
+ *
  */
 
-pre:not(#style-text) {
-  -webkit-transform: rotateY(10deg);
-  -webkit-transform-origin: left;
-}
+/**
+ *
+ * You chuckle a bit beneath
+ * your breath.
+ * These people clearly cannot
+ * make something out of nothingness.
+ *
+ * After all, humans are not gods.
+ *
+ */

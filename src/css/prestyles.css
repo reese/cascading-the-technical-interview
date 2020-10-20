@@ -31,7 +31,7 @@ pre {
 }
 
 a:after {
-  content: '';
+  content: "";
   padding-right: 5px;
   border-right-width: 1px;
   border-right-style: solid;

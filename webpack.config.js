@@ -1,13 +1,13 @@
-'use strict';
-var webpack = require('webpack');
-var path = require('path');
+"use strict";
+var webpack = require("webpack");
+var path = require("path");
 
 // Builds bundle usable inside <script>.
 module.exports = {
   context: __dirname,
-  mode: 'production',
+  mode: "production",
   entry: {
-    'app': './src/js/app.js'
+    app: "./src/js/app.js",
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -15,26 +15,26 @@ module.exports = {
     libraryTarget: "umd",
     library: "app",
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         query: {
           cacheDirectory: true,
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   devServer: {
     contentBase: __dirname,
-    publicPath: '/dist',
+    publicPath: "/dist",
     compress: true,
     port: 4003,
   },
   optimization: {
-    minimize: true
+    minimize: true,
   },
 };

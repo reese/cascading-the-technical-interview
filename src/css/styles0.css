@@ -122,9 +122,14 @@ pre:not(:empty) {
 
 /**
   *
-  * "This is a bit embarrassing, but we do this with every candidate;
-  * to start off, I'd love for you to walk me through a simple FizzBuzz implementation.
+  * "This is a bit embarrassing, but
+  * we do this with every candidate;
+  * to start off, I'd love for you to walk me
+  * through a simple FizzBuzz implementation.
   * I'm assuming you've heard of FizzBuzz, right?"
+  */
+
+/**
   *
   * Now that brings the warmth back!
   * An old god, pitted against a child's algorithm.
@@ -135,7 +140,31 @@ pre:not(:empty) {
 
 /**
  *
- * The mortals seem to praise you for finishing these sorts of things
- * quickly. A peasant's task.
+ * Your fingers fling themselves
+ * across the keyboard of their own accord.
+ * The blood of antiquity instills
+ * powers unknown to your judge.
+ *
+ * Your eyes sting, having not adjusted
+ * to the accursed lights above you.
+ *
+ */
+
+body {
+  background-color: #484848;
+}
+
+pre,
+a {
+  color: white;
+}
+
+/**
+ *
+ * "Did someone just dim the lights?"
+ * Alexis peeks her head into the hallway.
+ *
+ * The air around you cools, reminiscent of
+ * an ocean home.
  *
  */
