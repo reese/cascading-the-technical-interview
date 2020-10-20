@@ -35,7 +35,7 @@
 
 /**
  *
- * "Is this... Idris?"
+ * "Is this...    <div class="glitch"><div class="center">Idris</div><div class="center">Idris</div><div class="center">Idris</div><div class="center">Idris</div></div>   ?"
  *
  */
 
@@ -56,19 +56,9 @@
  *
  * "It's just that this is
  * a web dev shop. You know,
- * HTML, CSS, JS, all that."
+ * CSS, JS, all that."
  *
  */
-
-body {
-  -webkit-perspective: 1000px;
-}
-
-#style-text {
-  -webkit-transform: translateX(100%) rotateY(-10deg);
-  -webkit-transform-origin: right;
-  max-height: 90vh;
-}
 
 /**
  *

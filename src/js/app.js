@@ -9,7 +9,7 @@ import {
   writeSimpleChar
 } from "../../lib/writeChar";
 
-const styleText = [0, 1, 2].map(
+let styleText = [0, 1, 2].map(
   (i) => require("raw-loader!../css/styles" + i + ".css").default
 );
 const jsText = [0, 1, 2].map(
@@ -24,7 +24,7 @@ let animationSkipped = false,
   paused = false;
 
 const executeInitialSetup = () => {
-  getBrowserPrefix();
+  correctBrowserPrefix();
   populateHeader();
   getElements();
   createEventHandlers();
@@ -38,23 +38,27 @@ async function startAnimation() {
     await writeTo(styleEl, styleText[0], 0, speed, true, 1);
     await writeTo(jsEl, idrisText, 0, speed, true, 1);
     await writeTo(styleEl, styleText[1], 0, speed, true, 1);
-    jsEl.innerHTML = "";
+
+    clearJsElement();
+
     await writeTo(jsEl, jsText[0], 0, speed, true, 1, true);
-    await Promise.delay(1000);
     await writeTo(styleEl, styleText[2], 0, speed, true, 1);
     await writeTo(styleEl, styleText[3], 0, speed, true, 1);
   } catch (e) {
     if (e.message === "SKIP IT") {
-      surprisinglyShortAttentionSpan();
+      skipToEnd();
     } else {
       throw e;
     }
   }
 }
 
+const clearJsElement = () => jsEl.innterHTML = "";
+
 // Skips all the animations.
-async function surprisinglyShortAttentionSpan() {
+async function skipToEnd() {
   if (done) return;
+
   done = true;
   let txt = styleText.join("\n");
 
@@ -64,9 +68,8 @@ async function surprisinglyShortAttentionSpan() {
     styleHTML = handleChar(styleHTML, txt[i]);
   }
   styleEl.innerHTML = styleHTML;
-  createWorkBox();
 
-  // There's a bit of a scroll problem with this thing
+  // TODO: Why do we need this?
   let start = Date.now();
   while (Date.now() - 1000 > start) {
     styleEl.scrollTop = jsEl.scrollTop = Infinity;
@@ -74,13 +77,9 @@ async function surprisinglyShortAttentionSpan() {
   }
 }
 
-/**
- * Helpers
- */
-
-let endOfSentence = /[\.\?\!]\s$/;
-let comma = /\D[\,]\s$/;
-let endOfBlock = /[^\/]\n\n$/;
+const END_OF_SENTENCE = /[\.\?\!]\s$/;
+const COMMA = /\D[\,]\s$/;
+const END_OF_BLOCK = /[^\/]\n\n$/;
 
 async function writeTo(
   el,
@@ -92,7 +91,6 @@ async function writeTo(
   isJs = false
 ) {
   if (animationSkipped) {
-    // Lol who needs proper flow control
     throw new Error("SKIP IT");
   }
   // Write a character or multiple characters to the buffer.
@@ -115,9 +113,9 @@ async function writeTo(
   if (index < message.length) {
     let thisInterval = interval;
     let thisSlice = message.slice(index - 2, index + 1);
-    if (comma.test(thisSlice)) thisInterval = interval * 30;
-    if (endOfBlock.test(thisSlice)) thisInterval = interval * 50;
-    if (endOfSentence.test(thisSlice)) thisInterval = interval * 70;
+    if (COMMA.test(thisSlice)) thisInterval = interval * 30;
+    if (END_OF_BLOCK.test(thisSlice)) thisInterval = interval * 50;
+    if (END_OF_SENTENCE.test(thisSlice)) thisInterval = interval * 70;
 
     do {
       await Promise.delay(thisInterval);
@@ -135,7 +133,7 @@ async function writeTo(
   }
 }
 
-function getBrowserPrefix() {
+function correctBrowserPrefix() {
   styleText = styleText.map((text) => {
     return text.replace(/-webkit-/g, getPrefix);
   });
@@ -153,11 +151,7 @@ function populateHeader() {
   header.innerHTML = headerHTML;
 }
 
-//
-// Create basic event handlers for user input.
-//
 function createEventHandlers() {
-  // Mirror user edits back to the style element.
   styleEl.addEventListener("input", function () {
     style.textContent = styleEl.textContent;
   });

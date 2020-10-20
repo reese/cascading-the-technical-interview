@@ -168,3 +168,72 @@ a {
  * an ocean home.
  *
  */
+
+.glitch {
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+}
+
+.glitch > * {
+  text-transform: uppercase;
+}
+
+.glitch > *:nth-child(4) {
+  color: #f5f5f5;
+  animation: moveDown 500ms ease-in-out infinite;
+}
+
+@keyframes moveDown {
+  0%,
+  100% {
+    transform: translate(-50%, -51%);
+  }
+  50% {
+    transform: translate(-50%, -48.5%);
+  }
+}
+.glitch > *:nth-child(3) {
+  color: blue;
+  animation: moveUp 500ms ease-in-out infinite;
+}
+
+@keyframes moveUp {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -51.5%);
+  }
+}
+
+.glitch > *:nth-child(2) {
+  color: green;
+  animation: moveRight 500ms ease-in-out infinite;
+}
+
+@keyframes moveRight {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-48.5%, -50%);
+  }
+}
+
+.glitch > *:nth-child(1) {
+  color: orangered;
+  animation: moveLeft 500ms ease-in-out infinite;
+}
+
+@keyframes moveLeft {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-51.5%, -50%);
+  }
+}
