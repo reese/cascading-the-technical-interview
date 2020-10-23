@@ -1,5 +1,5 @@
 import "classlist-polyfill";
-import hljs from 'highlightjs';
+import hljs from "highlightjs";
 import headerHTML from "raw-loader!./header.html";
 import getPrefix from "./lib/getPrefix";
 import {
@@ -7,7 +7,7 @@ import {
   handleChar,
   writeChar,
   writeJsChar,
-  writeSimpleChar
+  writeSimpleChar,
 } from "./lib/writeChar";
 
 let styleText = [...Array(7).keys()].map(
@@ -24,8 +24,7 @@ let animationSkipped = false,
   done = false,
   paused = false;
 
-const renderIcons = () =>
-  feather.replace({ width: '24px', height: '24px' });
+const renderIcons = () => feather.replace({ width: "24px", height: "24px" });
 
 const executeInitialSetup = () => {
   correctBrowserPrefix();
@@ -38,11 +37,11 @@ const executeInitialSetup = () => {
 
 const waitForInput = () => {
   const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
-  input.placeholder = "100"
-  return new Promise(resolve => {
-    input.addEventListener('input', resolve);
+  input.placeholder = "100";
+  return new Promise((resolve) => {
+    input.addEventListener("input", resolve);
   });
-}
+};
 
 document.addEventListener("DOMContentLoaded", executeInitialSetup);
 
@@ -67,7 +66,7 @@ async function startAnimation() {
 
     await Promise.all([
       writeTo(jsEl, jsText[0], 0, speed, true, 1, true),
-      writeTo(styleEl, styleText[5], 0, speed, true, 2)
+      writeTo(styleEl, styleText[5], 0, speed, true, 2),
     ]);
     hljs.highlightBlock(jsEl);
 
@@ -75,7 +74,7 @@ async function startAnimation() {
 
     await Promise.all([
       writeTo(jsEl, jsText[1], 0, speed, true, 1, true),
-      writeTo(styleEl, styleText[6], 0, speed, true, 1)
+      writeTo(styleEl, styleText[6], 0, speed, true, 1),
     ]);
 
     flushJsScript();
@@ -99,13 +98,13 @@ async function startAnimation() {
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 const clearJsElement = () => {
   jsEl.innerHTML = "";
   jsEl.className = "";
-}
+};
 
 // Skips all the animations.
 async function skipToEnd() {
@@ -220,7 +219,7 @@ function createEventHandlers() {
       pauseEl.innerHTML = '<i data-feather="pause"></i>';
       paused = false;
     } else {
-      pauseEl.innerHTML= '<i data-feather="play"></i>';
+      pauseEl.innerHTML = '<i data-feather="play"></i>';
       paused = true;
     }
     renderIcons();
