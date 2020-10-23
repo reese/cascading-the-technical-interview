@@ -4,7 +4,14 @@
     "strict": 0,
     "quotes": ["single"],
     "curly": "multi-line",
-    "no-use-before-define": "nofunc"
+    "no-use-before-define": "nofunc",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 2
+      }
+    ]
   },
   "env": {
     "browser": true,

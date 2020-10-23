@@ -7,7 +7,7 @@ module.exports = {
   context: __dirname,
   mode: "production",
   entry: {
-    app: "./src/js/app.js",
+    app: "./app.js",
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -20,7 +20,7 @@ module.exports = {
     rules: [
       {
         test: /\.js?$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /js/],
         loader: "babel-loader",
         query: {
           cacheDirectory: true,

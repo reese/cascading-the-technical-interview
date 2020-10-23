@@ -1,0 +1,42 @@
+
+/**
+ *
+ * She bore also the fruitless deep
+ * with his raging swell, Pontus,
+ * without sweet union of love.
+ *
+ */
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n),
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n) {
+    display: none;
+}
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n)::before {
+    content: 'F̵̦͍͗̒i̵̭͌z̴̻̊͒z̸̨̞̃̌';
+}
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n)::after {
+    content: 'B̵̜̰̌ụ̴͋̑z̷̮̼̚z̶͔̱̈';
+}
+
+/**
+ *
+ * Your lips spread into what
+ * you believe they call a "smile,"
+ * but Alexis' countenance reflected
+ * no such exuberance.
+ *
+ */
+
+/**
+ *
+ * "Go on."
+ *
+ */
+
+/**
+ *
+ * "Let's take it for a spin."
+ *
+ */

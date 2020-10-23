@@ -2,7 +2,7 @@
   "name": "cascading-the-technical-interview",
   "version": "0.0.1",
   "description": "",
-  "main": "src/js/app.js",
+  "main": "app.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --open --mode development",
@@ -31,6 +31,7 @@
     "@babel/runtime": "^7.6.2",
     "bluebird": "^3.5.0",
     "classlist-polyfill": "^1.0.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "rainbow-code": "^2.1.7"
   }
 }

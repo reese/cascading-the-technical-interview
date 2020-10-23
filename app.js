@@ -1,21 +1,22 @@
 import Promise from "bluebird";
 import "classlist-polyfill";
-import headerHTML from "raw-loader!../../header.html";
-import getPrefix from "../../lib/getPrefix";
+import headerHTML from "raw-loader!./header.html";
+import getPrefix from "./lib/getPrefix";
 import {
+  flushJsScript,
   handleChar,
   writeChar,
   writeJsChar,
   writeSimpleChar
-} from "../../lib/writeChar";
+} from "./lib/writeChar";
 
-let styleText = [0, 1, 2].map(
-  (i) => require("raw-loader!../css/styles" + i + ".css").default
+let styleText = [...Array(7).keys()].map(
+  (i) => require("raw-loader!./src/css/styles" + i + ".css").default
 );
 const jsText = [0, 1, 2].map(
-  (i) => require("raw-loader!./fizz" + i + ".js").default
+  (i) => require("raw-loader!./src/js/fizz" + i + ".js").default
 );
-const idrisText = require("raw-loader!./fizz.idr").default;
+const idrisText = require("raw-loader!./src/js/fizz.idr").default;
 
 const speed = 0; // TODO: Change this once everything is finished
 let style, styleEl, jsEl, pauseEl;
@@ -31,19 +32,52 @@ const executeInitialSetup = () => {
   startAnimation();
 };
 
+const waitForInput = () => {
+  const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
+  return new Promise(resolve => {
+    input.addEventListener('input', resolve);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", executeInitialSetup);
 
 async function startAnimation() {
   try {
     await writeTo(styleEl, styleText[0], 0, speed, true, 1);
-    await writeTo(jsEl, idrisText, 0, speed, true, 1);
-    await writeTo(styleEl, styleText[1], 0, speed, true, 1);
+    await writeTo(jsEl, idrisText, 0, speed, false, 1);
+
+    // Run the glitch setup at full speed
+    await writeTo(styleEl, styleText[1], 0, 0, true, 10);
+    addSyntaxHighlighting();
+    await writeTo(styleEl, styleText[2], 0, speed, true, 1);
+    // Run the glitch HTML setup at full speed
+    await writeTo(styleEl, styleText[3], 0, 0, true, 5);
+    // Give time for the keyframes to properly paint
+    await Promise.delay(3000);
+    await writeTo(styleEl, styleText[4], 0, speed, true, 1);
+    await Promise.delay(1000);
 
     clearJsElement();
 
-    await writeTo(jsEl, jsText[0], 0, speed, true, 1, true);
-    await writeTo(styleEl, styleText[2], 0, speed, true, 1);
-    await writeTo(styleEl, styleText[3], 0, speed, true, 1);
+    await Promise.all([
+      writeTo(jsEl, jsText[0], 0, speed, true, 1, true),
+      writeTo(styleEl, styleText[5], 0, speed, true, 2)
+    ]);
+
+    await Promise.delay(2000);
+
+    await Promise.all([
+      writeTo(jsEl, jsText[1], 0, speed, true, 1, true),
+      writeTo(styleEl, styleText[6], 0, speed, true, 1)
+    ]);
+
+    flushJsScript();
+
+    // Wait for user to input something?
+    await waitForInput();
+    await writeTo(jsEl, jsText[2], 0, speed, true, 1, true);
+
+    flushJsScript();
   } catch (e) {
     if (e.message === "SKIP IT") {
       skipToEnd();
@@ -53,7 +87,12 @@ async function startAnimation() {
   }
 }
 
-const clearJsElement = () => jsEl.innterHTML = "";
+const addSyntaxHighlighting = () => {
+  styleEl.classList.add("language-css");
+  jsEl.classList.add("language-js");
+}
+
+const clearJsElement = () => jsEl.innerHTML = "";
 
 // Skips all the animations.
 async function skipToEnd() {
