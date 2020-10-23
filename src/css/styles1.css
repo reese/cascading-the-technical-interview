@@ -4,22 +4,6 @@
   font-style: italic;
 }
 
-.selector {
-  color: #e69f0f;
-}
-
-.selector .key {
-  color: #64d5ea;
-}
-
-.key {
-  color: #64d5ea;
-}
-
-.value {
-  color: #be84f2;
-}
-
 .glitch {
   position: absolute;
   display: inline-block;

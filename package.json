@@ -29,9 +29,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.2",
-    "bluebird": "^3.5.0",
     "classlist-polyfill": "^1.0.1",
-    "prettier": "^2.1.2",
-    "rainbow-code": "^2.1.7"
+    "highlightjs": "^9.16.2"
   }
 }

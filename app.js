@@ -1,5 +1,5 @@
-import Promise from "bluebird";
 import "classlist-polyfill";
+import hljs from 'highlightjs';
 import headerHTML from "raw-loader!./header.html";
 import getPrefix from "./lib/getPrefix";
 import {
@@ -18,22 +18,27 @@ const jsText = [0, 1, 2].map(
 );
 const idrisText = require("raw-loader!./src/js/fizz.idr").default;
 
-const speed = 0; // TODO: Change this once everything is finished
+const speed = 20; // TODO: Change this once everything is finished
 let style, styleEl, jsEl, pauseEl;
 let animationSkipped = false,
   done = false,
   paused = false;
 
+const renderIcons = () =>
+  feather.replace({ width: '24px', height: '24px' });
+
 const executeInitialSetup = () => {
   correctBrowserPrefix();
   populateHeader();
   getElements();
+  renderIcons();
   createEventHandlers();
   startAnimation();
 };
 
 const waitForInput = () => {
   const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
+  input.placeholder = "100"
   return new Promise(resolve => {
     input.addEventListener('input', resolve);
   });
@@ -45,17 +50,18 @@ async function startAnimation() {
   try {
     await writeTo(styleEl, styleText[0], 0, speed, true, 1);
     await writeTo(jsEl, idrisText, 0, speed, false, 1);
+    hljs.highlightBlock(jsEl);
 
     // Run the glitch setup at full speed
-    await writeTo(styleEl, styleText[1], 0, 0, true, 10);
-    addSyntaxHighlighting();
+    await writeTo(styleEl, styleText[1], 0, 0, true, 8);
     await writeTo(styleEl, styleText[2], 0, speed, true, 1);
     // Run the glitch HTML setup at full speed
     await writeTo(styleEl, styleText[3], 0, 0, true, 5);
+
     // Give time for the keyframes to properly paint
-    await Promise.delay(3000);
+    await sleep(3000);
     await writeTo(styleEl, styleText[4], 0, speed, true, 1);
-    await Promise.delay(1000);
+    await sleep(1000);
 
     clearJsElement();
 
@@ -63,8 +69,9 @@ async function startAnimation() {
       writeTo(jsEl, jsText[0], 0, speed, true, 1, true),
       writeTo(styleEl, styleText[5], 0, speed, true, 2)
     ]);
+    hljs.highlightBlock(jsEl);
 
-    await Promise.delay(2000);
+    await sleep(2000);
 
     await Promise.all([
       writeTo(jsEl, jsText[1], 0, speed, true, 1, true),
@@ -73,9 +80,13 @@ async function startAnimation() {
 
     flushJsScript();
 
+    hljs.highlightBlock(jsEl);
+
     // Wait for user to input something?
     await waitForInput();
     await writeTo(jsEl, jsText[2], 0, speed, true, 1, true);
+    hljs.highlightBlock(jsEl);
+    hljs.highlightBlock(styleEl);
 
     flushJsScript();
   } catch (e) {
@@ -87,12 +98,14 @@ async function startAnimation() {
   }
 }
 
-const addSyntaxHighlighting = () => {
-  styleEl.classList.add("language-css");
-  jsEl.classList.add("language-js");
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const clearJsElement = () => jsEl.innerHTML = "";
+const clearJsElement = () => {
+  jsEl.innerHTML = "";
+  jsEl.className = "";
+}
 
 // Skips all the animations.
 async function skipToEnd() {
@@ -112,7 +125,7 @@ async function skipToEnd() {
   let start = Date.now();
   while (Date.now() - 1000 > start) {
     styleEl.scrollTop = jsEl.scrollTop = Infinity;
-    await Promise.delay(16);
+    await sleep(16);
   }
 }
 
@@ -157,7 +170,7 @@ async function writeTo(
     if (END_OF_SENTENCE.test(thisSlice)) thisInterval = interval * 70;
 
     do {
-      await Promise.delay(thisInterval);
+      await sleep(thisInterval);
     } while (paused);
 
     return writeTo(
@@ -204,11 +217,12 @@ function createEventHandlers() {
   pauseEl.addEventListener("click", function (e) {
     e.preventDefault();
     if (paused) {
-      pauseEl.textContent = "Pause ||";
+      pauseEl.innerHTML = '<i data-feather="pause"></i>';
       paused = false;
     } else {
-      pauseEl.textContent = "Resume >>";
+      pauseEl.innerHTML= '<i data-feather="play"></i>';
       paused = true;
     }
+    renderIcons();
   });
 }

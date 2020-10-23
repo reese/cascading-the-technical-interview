@@ -1,11 +1,16 @@
 
 /**
  *
- * There's that slight buzz in the air. More like a rumble,
+ * There's that slight buzz in the air.
+ * More like a rumble,
  * the air tingling against your tympanum.
- * Some say it's the whisper of Scylla, but you know better.
+ * Some say it's the whisper of Scylla,
+ * but you know better.
  *
  * Charybdis being the more likely culprit.
+ */
+
+/**
  *
  * These were, of course, in the early days, when that
  * gentle naiad's water was yet untouched by some wicked potion
@@ -16,10 +21,14 @@
 
 /**
  *
- * You had always wished that Keats had been right, that her
- * beauty may have lived in a crystal enclave, with every
- * unholy sailor or pirate whose lover remained ashore, fixed
- * firmly to the land, dreaming of those endless seas to which their heart was lost.
+ * You had always wished that
+ * Keats had been right, that her
+ * beauty may have lived in a
+ * crystal enclave, with every
+ * unholy sailor or pirate whose lover
+ * remained ashore, fixed firmly to the land,
+ * dreaming of those endless seas
+ * to which their heart was lost.
  *
  */
 
@@ -38,12 +47,13 @@
   *
   * "Steven, right?"
   *
-  * The waves die down, and a bright light burns your eyes.
+  * The waves die down,
+  * and a bright light burns your eyes.
   * Bright, but not warm.
   *
   */
 
-code,
+pre,
 a {
   color: slategray;
 }
@@ -91,19 +101,25 @@ html {
 
 /**
  *
- * "Together we'll go through some standard technical questions", she continues,
- * "although to be quite honest, from looking at your resume,
+ * "Together we'll go through some standard
+ *  technical questions", she continues,
+ * "although to be quite honest,
+ * from looking at your resume,
  * I'm sure you'll breeze through them."
  *
- * The warmth began to return to your old bones. The mortals around
- * you glowed, their veins throbbing with fresh blood for a pious altar.
+ * The warmth began to return to your old bones.
+ * The mortals around you glowed,
+ * their veins throbbing with
+ * fresh blood for a pious altar.
+ *
  * Memories of the mortal era returned to mind.
  *
- * "We have a Google Doc here that you can write your code in."
+ * "We have a Google Doc ready
+ * that you can write your code in."
  *
  */
 
-code:not(:empty) {
+pre:not(:empty) {
   overflow: auto;
   max-height: 80vh;
   width: 48%;
@@ -155,7 +171,7 @@ body {
   background-color: #484848;
 }
 
-code,
+pre,
 a {
   color: white;
 }

@@ -7,17 +7,32 @@
  *
  */
 
-.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n),
-.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n) {
-    display: none;
+ .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝ {
+    margin: 10px 0;
+ }
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n+1),
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n+1) {
+    font-size: 1px;
+    letter-spacing: -1px;
+    color: transparent;
+}
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n)::before,
+
+.F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n)::after {
+    font-size: 1rem;
+    letter-spacing: normal;
+    color: white;
 }
 
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n)::before {
-    content: 'F̵̦͍͗̒i̵̭͌z̴̻̊͒z̸̨̞̃̌';
+    content: 'F̶i̷z̸z̵';
 }
 
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n)::after {
-    content: 'B̵̜̰̌ụ̴͋̑z̷̮̼̚z̶͔̱̈';
+    content: 'B̵͓̆ȕ̷̯z̶̹͑z̸̘̍';
 }
 
 /**
@@ -40,3 +55,18 @@
  * "Let's take it for a spin."
  *
  */
+
+#js-text {
+    max-height: 40vh;
+}
+
+#NO_MASTERS {
+    max-height: 40vh;
+}
+
+#o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝ {
+    width: 25%;
+    border-radius: 5px;
+    margin: 1vw 0.5vw;
+    border: 0;
+}
