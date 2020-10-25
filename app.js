@@ -29,12 +29,11 @@ const executeInitialSetup = () => {
   startAnimation();
 };
 
-const waitForInput = () => {
+const setValueForInput = () => {
   const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
   input.focus();
-  return new Promise((resolve) => {
-    input.addEventListener("input", resolve);
-  });
+  input.value = 100;
+  input.oninput({ target: input });
 };
 
 document.addEventListener("DOMContentLoaded", executeInitialSetup);
@@ -76,7 +75,7 @@ async function startAnimation() {
     hljs.highlightBlock(jsEl);
 
     // Wait for user to input something
-    await waitForInput();
+    setValueForInput();
 
     flushJsScript();
 
@@ -122,16 +121,12 @@ async function skipToEnd() {
   jsEl.textContent = mergedJsText;
   flushJsScript(mergedJsText);
 
-  let input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
-  if (!input) {
-    const content = document.getElementById("js-text");
-    input = document.createElement("input");
-    input.id = "o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝";
-    content.after(input);
-  }
+  const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
+  input.value = 100;
+  input.focus();
+  input.oninput({ target: input });
   hljs.highlightBlock(styleEl);
   hljs.highlightBlock(jsEl);
-  input.focus();
 
   // TODO: Why do we need this?
   const start = Date.now();

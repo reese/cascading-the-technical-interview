@@ -2,7 +2,7 @@ const FIZZ = "F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝";
 
 const NO_GODS = "NO_MASTERS";
 
-input.addEventListener("input", ({ target: { value } }) => {
+input.oninput = ({ target: { value } }) => {
   const elements = document.getElementsByClassName(FIZZ);
   const elementsToRemove = [];
   for (elem of elements) elementsToRemove.push(elem);
@@ -17,4 +17,4 @@ input.addEventListener("input", ({ target: { value } }) => {
     div.innerHTML = i;
     container.appendChild(div);
   }
-});
+};
