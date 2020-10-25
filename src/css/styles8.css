@@ -1,0 +1,17 @@
+/**
+ *
+ * *wave*
+ *
+ * Hey, thanks for reading!
+ * This thing comes off the work
+ * of several other amazing
+ * articles and sites, and
+ * I wrote a bit about those
+ * on my blog! You can find out
+ * more about those at this link.
+ *
+ */
+
+#arrow, a[href*="reesew.io"] {
+    color: gold;
+}

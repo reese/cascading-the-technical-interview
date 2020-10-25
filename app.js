@@ -2,14 +2,9 @@ import "classlist-polyfill";
 import hljs from "highlightjs";
 import headerHTML from "raw-loader!./header.html";
 import { getPrefix } from "./lib/getPrefix";
-import {
-  flushJsScript,
+import { flushJsScript, writeCssChar, writeJsChar } from "./lib/writeChar";
 
-  writeCssChar,
-  writeJsChar
-} from "./lib/writeChar";
-
-let styleText = [...Array(8).keys()].map(
+let styleText = [...Array(9).keys()].map(
   (i) => require("raw-loader!./src/css/styles" + i + ".css").default
 );
 const jsText = [0, 1].map(
@@ -47,7 +42,7 @@ document.addEventListener("DOMContentLoaded", executeInitialSetup);
 async function startAnimation() {
   try {
     await writeTo(styleEl, styleText[0], 0, speed, 1);
-    await writeTo(jsEl, idrisText, 0, speed, 1, 'idris');
+    await writeTo(jsEl, idrisText, 0, speed, 1, "idris");
     hljs.highlightBlock(jsEl);
 
     // Run the glitch setup at full speed
@@ -64,7 +59,7 @@ async function startAnimation() {
     clearJsElement();
 
     await Promise.all([
-      writeTo(jsEl, jsText[0], 0, speed, 1, 'js'),
+      writeTo(jsEl, jsText[0], 0, speed, 1, "js"),
       writeTo(styleEl, styleText[5], 0, speed, 2),
     ]);
     hljs.highlightBlock(jsEl);
@@ -72,7 +67,7 @@ async function startAnimation() {
     await sleep(2000);
 
     await Promise.all([
-      writeTo(jsEl, jsText[1], 0, speed, 1, 'js'),
+      writeTo(jsEl, jsText[1], 0, speed, 1, "js"),
       writeTo(styleEl, styleText[6], 0, speed, 1),
     ]);
 
@@ -85,9 +80,11 @@ async function startAnimation() {
 
     flushJsScript();
 
-    await writeTo(styleEl, styleText[7], 0, speed, true, 1);
+    await writeTo(styleEl, styleText[7], 0, speed, 1);
     hljs.highlightBlock(styleEl);
 
+    await sleep(15000);
+    await writeTo(styleEl, styleText[8], 0, speed, 1);
   } catch (e) {
     if (e.message === "SKIP IT") {
       skipToEnd();
@@ -153,7 +150,7 @@ async function writeTo(
   index,
   interval,
   charsPerInterval,
-  mode = 'css'
+  mode = "css"
 ) {
   if (animationSkipped) {
     throw new Error("SKIP IT");
@@ -165,9 +162,9 @@ async function writeTo(
   // Ensure we stay scrolled to the bottom.
   element.scrollTop = element.scrollHeight;
 
-  if (mode === 'js') {
+  if (mode === "js") {
     writeJsChar(element, chars);
-  } else if (mode === 'css') {
+  } else if (mode === "css") {
     writeCssChar(element, chars, style);
   } else {
     element.innerHTML += chars;
@@ -187,14 +184,7 @@ async function writeTo(
       await sleep(thisInterval);
     } while (paused);
 
-    return writeTo(
-      element,
-      message,
-      index,
-      interval,
-      charsPerInterval,
-      mode
-    );
+    return writeTo(element, message, index, interval, charsPerInterval, mode);
   }
 }
 

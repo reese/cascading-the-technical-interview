@@ -34,6 +34,10 @@ i, a {
   color: invert(1);
 }
 
+#arrow {
+  color: transparent;
+}
+
 a {
   color: inherit;
   margin: auto 5px;
