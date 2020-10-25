@@ -1,7 +1,7 @@
 
 /**
  *
- * There's that slight buzz in the air.
+ * There's a slight buzz in the air.
  * More like a rumble,
  * the air tingling against your tympanum.
  * Some say it's the whisper of Scylla,
@@ -13,22 +13,18 @@
 
 /**
  *
- * These were, of course, in the early days,
- * when that gentle naiad's water was yet
+ * That gentle naiad's water was yet
  * untouched by some wicked potion
  * of this-or-that jealous goddess.
  * That cunning Odysseus had not
  * yet made his bargain, nor seen her fury.
- *
- * Not many got such a deal.
  *
  */
 
 /**
  *
  * You had always wished that
- * Keats had been right, that her
- * beauty may have lived in a
+ * her beauty may have lived in a
  * crystal enclave, with every
  * unholy sailor or pirate whose lover
  * remained ashore, fixed firmly to the land,
@@ -40,26 +36,61 @@
 /**
  *
  * There's a pounding in the distance,
- * deep booms as were common in those primordial days,
- * and a creak like the groaning collapse of a topsail.
- *
- * You inhale sharply.
- * The salt burns your chest as your lungs fill with water.
+ * deep booms as were common
+ * in those primordial days,
+ * and a creak like the groaning
+ * collapse of a topsail.
  *
  */
 
 /**
-  *
-  * "Steven, right?"
-  *
-  * The waves die down,
-  * and a bright light burns your eyes.
-  * Bright, but not warm.
-  *
-  */
+ *
+ * Those daughters of Erebus worked
+ * diligently by the shore, learning
+ * that art of weaving such gentle
+ * thread.
+ *
+ * In those days they still smiled,
+ * unburdened by duty. You watch
+ * as they shuffle towards one
+ * another, Lachesis' hands
+ * spread across her wingspan.
+ *
+ */
 
-pre,
-a {
+/**
+ *
+ * Snip.
+ *
+ */
+
+/**
+ *
+ * The waves, once gentle,
+ * surge across the sand.
+ * The air around you thickens
+ * and burns like fire.
+ *
+ * You inhale sharply.
+ * Your lungs fill with seawater.
+ *
+ */
+
+/**
+ *
+ * "Thomas, right?"
+ *
+ */
+
+/**
+ *
+ * The waves subside,
+ * and a bright light stings your eyes.
+ * Bright, but cold.
+ *
+ */
+
+pre {
   color: slategray;
 }
 
@@ -75,28 +106,32 @@ html {
 
 /**
  *
- * A hand reaches out, most definitely a human hand.
+ * A claw reaches out, no,
+ * a hand.
  *
  * "I'm Alexis, I'll be interviewing you today."
  *
- * You reach out as the waves subside around you.
- * The smell of dry-erase markers and freshly cleaned office
- * carpets bite your nose.
- * The handshake is firm, but not warm.
+ * The stench of scorched earth subsides,
+ * replaced by that of dry-erase markers
+ * and freshly vacuumed office carpets.
+ *
+ * The handshake is firm, but cold.
  *
  */
 
 /**
  *
- * "Nice to meet you," you fumble out, your mind and body slowly
+ * "Nice to meet you," you fumble out,
+ * your mind and body slowly
  * coalescing into the same epoch.
  *
  */
 
 /**
  *
- * "Thank you so much for coming in today. We're very
- * fortunate to have a candidate with your seniority
+ * "Thank you so much for coming in today.
+ * We're very excited to have
+ * a candidate with your seniority
  * express an interest in the team."
  *
  * Those ancient tides still pulse in your ears.
@@ -106,18 +141,26 @@ html {
 
 /**
  *
- * "Together we'll go through some standard
- *  technical questions", she continues,
+ * "To get started,
+ * we'll go through a few standard
+ * technical questions," she continues,
  * "although to be quite honest,
  * from looking at your resume,
  * I'm sure you'll breeze through them."
  *
- * The warmth began to return to your old bones.
+ */
+
+/**
+ *
  * The mortals around you glowed,
  * their veins throbbing with
  * fresh blood for a pious altar.
  *
- * Memories of the mortal era returned to mind.
+ * Memories of this era returned to mind.
+ *
+ */
+
+/**
  *
  * "We have a Google Doc ready
  * that you can write your code in."
@@ -128,8 +171,6 @@ pre:not(:empty) {
   overflow: auto;
   max-height: 80vh;
   width: 48%;
-  font-size: 14px;
-  font-family: monospace;
   padding: 1vh 0.5vw;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   white-space: pre-wrap;
@@ -144,28 +185,35 @@ pre:not(:empty) {
 
 /**
   *
-  * "This is a bit embarrassing, but
-  * we do this with every candidate;
+  * "I'm guessing this first
+  * question will be _too_ easy,"
+  * Alexis laughed, "but
+  * we do this for every candidate;
   * to start off, I'd love for you to walk me
   * through a simple FizzBuzz implementation.
   * I'm assuming you've heard of FizzBuzz, right?"
-  */
-
-/**
-  *
-  * Now that brings the warmth back!
-  * An old god, pitted against a child's algorithm.
-  * Your laughter shakes the walls
-  * of the exposed-brick office halls.
   *
   */
 
 /**
  *
- * Your fingers fling themselves
- * across the keyboard of their own accord.
- * The blood of antiquity instills
- * powers unknown to your judge.
+ * Your laughter shakes the walls
+ * of the exposed-brick office halls.
+ *
+ * That brings the warmth back!
+ * An old god, pitted against a child's algorithm!
+ *
+ */
+
+/**
+ *
+ * "I mean -- ehm of course," you say.
+ * Gods must not give themselves away
+ * among mortals.
+ *
+ */
+
+/**
  *
  * Your eyes sting, having not adjusted
  * to the accursed lights above you.
@@ -176,8 +224,7 @@ body {
   background-color: #484848;
 }
 
-pre,
-a {
+pre {
   color: white;
 }
 
@@ -185,6 +232,9 @@ a {
  *
  * "Did someone just dim the lights?"
  * Alexis peeks her head into the hallway.
+ *
+ * The blood of antiquity instills
+ * powers unknown to your judge.
  *
  */
 

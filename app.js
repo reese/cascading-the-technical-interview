@@ -4,21 +4,20 @@ import headerHTML from "raw-loader!./header.html";
 import getPrefix from "./lib/getPrefix";
 import {
   flushJsScript,
-  handleChar,
-  writeChar,
-  writeJsChar,
-  writeSimpleChar,
+
+  writeCssChar,
+  writeJsChar
 } from "./lib/writeChar";
 
-let styleText = [...Array(7).keys()].map(
+let styleText = [...Array(8).keys()].map(
   (i) => require("raw-loader!./src/css/styles" + i + ".css").default
 );
-const jsText = [0, 1, 2].map(
+const jsText = [0, 1].map(
   (i) => require("raw-loader!./src/js/fizz" + i + ".js").default
 );
 const idrisText = require("raw-loader!./src/js/fizz.idr").default;
 
-const speed = 20; // TODO: Change this once everything is finished
+const speed = 20;
 let style, styleEl, jsEl, pauseEl;
 let animationSkipped = false,
   done = false,
@@ -37,7 +36,7 @@ const executeInitialSetup = () => {
 
 const waitForInput = () => {
   const input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
-  input.placeholder = "100";
+  input.focus();
   return new Promise((resolve) => {
     input.addEventListener("input", resolve);
   });
@@ -47,47 +46,48 @@ document.addEventListener("DOMContentLoaded", executeInitialSetup);
 
 async function startAnimation() {
   try {
-    await writeTo(styleEl, styleText[0], 0, speed, true, 1);
-    await writeTo(jsEl, idrisText, 0, speed, false, 1);
+    await writeTo(styleEl, styleText[0], 0, speed, 1);
+    await writeTo(jsEl, idrisText, 0, speed, 1, 'idris');
     hljs.highlightBlock(jsEl);
 
     // Run the glitch setup at full speed
-    await writeTo(styleEl, styleText[1], 0, 0, true, 8);
-    await writeTo(styleEl, styleText[2], 0, speed, true, 1);
+    await writeTo(styleEl, styleText[1], 0, 0, 8);
+    await writeTo(styleEl, styleText[2], 0, speed, 1);
     // Run the glitch HTML setup at full speed
-    await writeTo(styleEl, styleText[3], 0, 0, true, 5);
+    await writeTo(styleEl, styleText[3], 0, 0, 5);
 
     // Give time for the keyframes to properly paint
     await sleep(3000);
-    await writeTo(styleEl, styleText[4], 0, speed, true, 1);
+    await writeTo(styleEl, styleText[4], 0, speed, 1);
     await sleep(1000);
 
     clearJsElement();
 
     await Promise.all([
-      writeTo(jsEl, jsText[0], 0, speed, true, 1, true),
-      writeTo(styleEl, styleText[5], 0, speed, true, 2),
+      writeTo(jsEl, jsText[0], 0, speed, 1, 'js'),
+      writeTo(styleEl, styleText[5], 0, speed, 2),
     ]);
     hljs.highlightBlock(jsEl);
 
     await sleep(2000);
 
     await Promise.all([
-      writeTo(jsEl, jsText[1], 0, speed, true, 1, true),
-      writeTo(styleEl, styleText[6], 0, speed, true, 1),
+      writeTo(jsEl, jsText[1], 0, speed, 1, 'js'),
+      writeTo(styleEl, styleText[6], 0, speed, 1),
     ]);
 
     flushJsScript();
 
     hljs.highlightBlock(jsEl);
 
-    // Wait for user to input something?
+    // Wait for user to input something
     await waitForInput();
-    await writeTo(jsEl, jsText[2], 0, speed, true, 1, true);
-    hljs.highlightBlock(jsEl);
-    hljs.highlightBlock(styleEl);
 
     flushJsScript();
+
+    await writeTo(styleEl, styleText[7], 0, speed, true, 1);
+    hljs.highlightBlock(styleEl);
+
   } catch (e) {
     if (e.message === "SKIP IT") {
       skipToEnd();
@@ -106,22 +106,37 @@ const clearJsElement = () => {
   jsEl.className = "";
 };
 
-// Skips all the animations.
 async function skipToEnd() {
   if (done) return;
 
   done = true;
   let txt = styleText.join("\n");
+  const mergedJsText = jsText.join("\n");
 
   style.textContent += txt;
+
   let styleHTML = "";
   for (let i = 0; i < txt.length; i++) {
-    styleHTML = handleChar(styleHTML, txt[i]);
+    styleHTML += txt[i];
   }
+
   styleEl.innerHTML = styleHTML;
+  jsEl.textContent = mergedJsText;
+  flushJsScript(mergedJsText);
+
+  let input = document.getElementById("o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝");
+  if (!input) {
+    const content = document.getElementById("js-text");
+    input = document.createElement("input");
+    input.id = "o̵̡̤͆̌c̸̳͔͒͌̕̕e̵̟̭̓̆ă̴̺̜ṋ̵̢̛̗̬͋̀͝ṵ̸̓̂s̴͖̩̰͐̒͝";
+    content.after(input);
+  }
+  hljs.highlightBlock(styleEl);
+  hljs.highlightBlock(jsEl);
+  input.focus();
 
   // TODO: Why do we need this?
-  let start = Date.now();
+  const start = Date.now();
   while (Date.now() - 1000 > start) {
     styleEl.scrollTop = jsEl.scrollTop = Infinity;
     await sleep(16);
@@ -133,13 +148,12 @@ const COMMA = /\D[\,]\s$/;
 const END_OF_BLOCK = /[^\/]\n\n$/;
 
 async function writeTo(
-  el,
+  element,
   message,
   index,
   interval,
-  mirrorToStyle,
   charsPerInterval,
-  isJs = false
+  mode = 'css'
 ) {
   if (animationSkipped) {
     throw new Error("SKIP IT");
@@ -149,21 +163,22 @@ async function writeTo(
   index += charsPerInterval;
 
   // Ensure we stay scrolled to the bottom.
-  el.scrollTop = el.scrollHeight;
+  element.scrollTop = element.scrollHeight;
 
-  // If this is going to <style> or <script> it's more complex; otherwise, just write.
-  if (isJs) {
-    writeJsChar(el, chars);
-  } else if (mirrorToStyle) {
-    writeChar(el, chars, style);
+  if (mode === 'js') {
+    writeJsChar(element, chars);
+  } else if (mode === 'css') {
+    writeCssChar(element, chars, style);
   } else {
-    writeSimpleChar(el, chars);
+    element.innerHTML += chars;
   }
 
   // Schedule another write.
   if (index < message.length) {
     let thisInterval = interval;
     let thisSlice = message.slice(index - 2, index + 1);
+
+    // Add pauses after punctuation
     if (COMMA.test(thisSlice)) thisInterval = interval * 30;
     if (END_OF_BLOCK.test(thisSlice)) thisInterval = interval * 50;
     if (END_OF_SENTENCE.test(thisSlice)) thisInterval = interval * 70;
@@ -173,13 +188,12 @@ async function writeTo(
     } while (paused);
 
     return writeTo(
-      el,
+      element,
       message,
       index,
       interval,
-      mirrorToStyle,
       charsPerInterval,
-      isJs
+      mode
     );
   }
 }

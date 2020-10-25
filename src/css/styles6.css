@@ -1,15 +1,66 @@
 
 /**
+ * "Are you... appending DOM nodes?
+ * You can just console.log them."
  *
- * She bore also the fruitless deep
- * with his raging swell, Pontus,
- * without sweet union of love.
+ * "...and why do the classes
+ * look like that?"
+ *
+ */
+
+/**
+ *
+ * "You did say to use
+ * CSS, right?", you laugh.
+ *
+ */
+
+/**
+ *
+ * "Well yes, but not for _this_.
+ * I mean, those are just the
+ * numbers, right?
+ * You still have to print
+ * 'FizzBuzz' at some point."
+ *
+ */
+
+/**
+ *
+ * The lights flicker above you,
+ * and the sound of the tide
+ * grows quietly beneath
+ * the hum of the fluorescent lights.
+ *
+ */
+
+/**
+ *
+ * ἣ δὲ καὶ ἀτρύγετον πέλαγος τέκεν,
+ * οἴδματι θυῖον,
+ * Πόντον, ἄτερ φιλότητος ἐφιμέρου
+ *
+ */
+
+/**
+ *
+ * "Well sure," you say,
+ * "all they need is a little
+ * space to grow."
  *
  */
 
  .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝ {
     margin: 10px 0;
  }
+
+/**
+ *
+ * "Of course, we don't
+ * need those pesky numbers
+ * when the time is right..."
+ *
+ */
 
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n),
 
@@ -19,6 +70,12 @@
     color: transparent;
 }
 
+/**
+ *
+ * "...and when the time _is_ right..."
+ *
+ */
+
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n)::before,
 
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(5n)::after {
@@ -26,6 +83,12 @@
     letter-spacing: normal;
     color: white;
 }
+
+/**
+ *
+ * "...that's when the magic happens."
+ *
+ */
 
 .F̵͔̥̯̟͝I̴̢͈͚̺͛̋͝͝Z̷͍̜̼̲͛̈́Ẕ̴̟̤͛̍͝:nth-of-type(3n)::before {
     content: 'F̶i̷z̸z̵';
@@ -46,13 +109,15 @@
 
 /**
  *
- * "Go on."
+ * "Really? Pseudo-classes?
+ * _Negative letter-spacing_?"
+ * She gawks at your proposal.
  *
  */
 
 /**
  *
- * "Let's take it for a spin."
+ * "Go on, let's take it for a spin."
  *
  */
 
