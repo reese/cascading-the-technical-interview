@@ -85,6 +85,7 @@ async function startAnimation() {
 
     await sleep(15000);
     await writeTo(styleEl, styleText[8], 0, speed, 1);
+    hljs.highlightBlock(styleEl);
   } catch (e) {
     if (e.message === "SKIP IT") {
       skipToEnd();
