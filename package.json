@@ -28,8 +28,8 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2",
-    "classlist-polyfill": "^1.0.1",
+    "@babel/runtime": "^7.12",
+    "classlist-polyfill": "^1.2",
     "highlightjs": "^9.16.2"
   }
 }
