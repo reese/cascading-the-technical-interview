@@ -1,17 +1,11 @@
 # Cascading the Technical Interview
 
-[View Site](http://whiteboarding.guide)
+The "production" version of this can be found [here](http://whiteboarding.guide).
+For some acknowledgements and prior art, see my post about it [here](https://reesew.io/cascading-the-technical-interview).
 
-## Building
+## Running Locally
 
 ```bash
 npm install
 npm run dev
-# Open localhost:4003 in your browser
-```
-
-## Building for Production
-
-```bash
-npm run build
 ```
