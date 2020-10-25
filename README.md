@@ -1,7 +1,7 @@
 # Cascading the Technical Interview
 
 The "production" version of this can be found [here](http://whiteboarding.guide).
-For some acknowledgements and prior art, see my post about it [here](https://reesew.io/cascading-the-technical-interview).
+For some acknowledgements and prior art, see my post about it [here](https://reesew.io/posts/cascading-the-technical-interview).
 
 ## Running Locally
 
