@@ -6,7 +6,7 @@ input.addEventListener("input", ({ target: { value } }) => {
   const elements = document.getElementsByClassName(FIZZ);
   const elementsToRemove = [];
   for (elem of elements) elementsToRemove.push(elem);
-  elementsToRemove.map((e) => e.remove());
+  elementsToRemove.map(e => e.remove());
 
   const container = document.getElementById(NO_GODS);
 

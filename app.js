@@ -1,7 +1,7 @@
 import "classlist-polyfill";
 import hljs from "highlightjs";
 import headerHTML from "raw-loader!./header.html";
-import getPrefix from "./lib/getPrefix";
+import { getPrefix } from "./lib/getPrefix";
 import {
   flushJsScript,
 
